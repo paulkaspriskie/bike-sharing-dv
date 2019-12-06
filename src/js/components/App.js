@@ -6,6 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { data: {} };
+
+    this.dataDestructure = this.dataDestructure.bind(this);
   }
 
   componentDidMount() {
@@ -15,15 +17,30 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ data: data });
+        this.dataDestructure()
       }).catch((error) => console.log(error));
   }
 
 
-  render() {
+  dataDestructure() {
     var durationArr = [];
-        durationArr.push(Object.values(this.state.data).map((items, i) => Number(items.duration)));
-    var getAvgDur = durationArr[0].reduce((a,b) => a + b, 0) / durationArr[0].length;
-    console.log(getAvgDur);
+
+    Object.values(this.state.data).map((items, i) => {
+      // console.log(items.start_station);
+      // console.log(items.duration);
+      // console.log(items.passholder_type);
+      durationArr.push(Number(items.duration));
+    });
+
+    console.log(durationArr);
+  }
+
+
+  render() {
+    // var durationArr = [];
+    //     durationArr.push(Object.values(this.state.data).map((items, i) => Number(items.duration)));
+    // var getAvgDur = durationArr.reduce((a,b) => a + b, 0) / durationArr.length;
+    // console.log(Math.floor(getAvgDur * 100) / 100);
 
     return (
       <div>
