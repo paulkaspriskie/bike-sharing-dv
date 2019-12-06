@@ -15,12 +15,16 @@ class App extends React.Component {
       .then(response => response.json())
       .then(data => {
         this.setState({ data: data });
-        console.log(this.state.data);
       }).catch((error) => console.log(error));
   }
 
 
   render() {
+    var durationArr = [];
+        durationArr.push(Object.values(this.state.data).map((items, i) => Number(items.duration)));
+    var getAvgDur = durationArr[0].reduce((a,b) => a + b, 0) / durationArr[0].length;
+    console.log(getAvgDur);
+
     return (
       <div>
         <h1>Bike-Sharing-DV</h1>
