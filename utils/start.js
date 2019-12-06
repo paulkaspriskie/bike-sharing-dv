@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require("graceful-fs");
+var http = require('http');
 var chokidar = require('chokidar');
 var express = require('express');
 var browserify = require("browserify");
@@ -23,7 +24,25 @@ if (app.get('env') === 'development') {
 
   app.use(express.static(publicDir));
   http.listen(3000, () => console.info('\x1b[37m', '🌎  Listening on port 3000, open browser to http://localhost:3000/'));
-  open('http://localhost:3000');
+
+  var fileStream = fs.createReadStream("public/data/bike-sharing.csv");
+  var jsonData;
+  var Converter  = require("csvtojson").Converter;
+  var converter = new Converter({constructResult:true});
+
+  console.info('\x1b[33m', 'Converting CSV to JSON, please wait...');
+
+  // emits json object once parsing is finished and starts node server.
+  converter.on("end_parsed", function (jsonObj) {
+    jsonData = jsonObj
+    console.info('\x1b[32m','🎉 CSV converted to JSON!');
+    open('http://localhost:3000');
+  });
+
+  fileStream.pipe(converter);
+  app.get("/data",function(req, res){
+    res.json(jsonData);
+  });
 
   // Sass file watcher: *only runs when in dev.
   var scssWatcher = new Watcher('./src/scss/app.scss');
