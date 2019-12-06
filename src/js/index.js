@@ -1,7 +1,11 @@
-const markUp = `
-  <div id="app">
-    <h1>Bike-Sharing-DV</h1>
-  </div>
-`;
+import React from 'react';
+import { render } from 'react-dom';
+import App from './components/App';
 
-document.body.innerHTML = markUp;
+
+render(
+  <div className="app-container">
+    <App />
+  </div>,
+  document.getElementById('root')
+);
