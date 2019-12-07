@@ -24,10 +24,10 @@ class App extends React.Component {
 
   dataDestructure() {
     var durationArr = [];
+    // var getAvgDur = durationArr.reduce((a,b) => a + b, 0) / durationArr.length;
 
     Object.values(this.state.data).map((items, i) => {
       // console.log(items.start_station);
-      // console.log(items.duration);
       // console.log(items.passholder_type);
       durationArr.push(Number(items.duration));
     });
@@ -37,10 +37,6 @@ class App extends React.Component {
 
 
   render() {
-    // var durationArr = [];
-    //     durationArr.push(Object.values(this.state.data).map((items, i) => Number(items.duration)));
-    // var getAvgDur = durationArr.reduce((a,b) => a + b, 0) / durationArr.length;
-    // console.log(Math.floor(getAvgDur * 100) / 100);
 
     return (
       <div>
