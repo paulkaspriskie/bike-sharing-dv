@@ -24,6 +24,7 @@ class App extends React.Component {
 
   dataDestructure() {
     var durationArr = [];
+    var bikeTypeArr = [];
 
     const initialMap = new Promise(() => {
       Object.values(this.state.data).map((items, i) => {
@@ -31,6 +32,7 @@ class App extends React.Component {
         // console.log(items.passholder_type);
         // console.log(items.bike_type);
         durationArr.push(Number(items.duration));
+        bikeTypeArr.push(items.bike_type);
       });
     });
 
@@ -40,8 +42,11 @@ class App extends React.Component {
 
       return count;
     }
-
-    console.log(getOccurrences(durationArr, 3));
+    // console.log(bikeTypeArr);
+    var bikeTypeStandard = getOccurrences(bikeTypeArr, 'standard');
+    var bikeTypeEletric = getOccurrences(bikeTypeArr, 'electric');
+    console.log(bikeTypeEletric);
+    console.log(bikeTypeStandard);
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
   }
 
