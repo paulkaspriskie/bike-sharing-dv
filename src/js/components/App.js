@@ -65,14 +65,12 @@ class App extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <h1>Bike-Sharing-DV</h1>
       </div>
     )
   }
-
 }
 
 export default App;
