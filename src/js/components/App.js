@@ -27,10 +27,10 @@ class App extends React.Component {
 
 
   dataDestructure() {
-    var durationArr = [];
-    var bikeTypeArr = [];
-    var passTypeArr = [];
-    var tripTypeArr = [];
+    var durationArr = [],
+        bikeTypeArr = [],
+        passTypeArr = [],
+        tripTypeArr = [];
 
     const initialMap = new Promise(() => {
       Object.values(this.state.dataFetch).map((items, i) => {
