@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Doughnut } from 'react-chartjs-2';
 
 class App extends React.Component {
 
@@ -7,7 +7,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       dataFetch: {},
-      dataChart: {}
+      dataChart: {},
+      doughnutData: {}
     };
 
     this.dataDestructure = this.dataDestructure.bind(this);
@@ -69,13 +70,23 @@ class App extends React.Component {
         bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
         passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear },
         tripType: { oneWay: tripTypeOneWay, roundTrip: tripTypeRound }
+      },
+      doughnutData: {
+        datasets: [{
+          data: [ passTypeDay, passTypeMonth, passTypeYear ],
+          backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
+        }]
       }
     });
   }
 
   render() {
     return (
-      <div></div>
+      <div>
+        <Doughnut
+          data={this.state.doughnutData}
+          options={{ cutoutPercentage: 75, legend:{display:false}, maintainAspectRatio: true}} />
+      </div>
     )
   }
 }
