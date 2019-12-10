@@ -30,12 +30,14 @@ class App extends React.Component {
     var durationArr = [];
     var bikeTypeArr = [];
     var passTypeArr = [];
+    var tripTypeArr = [];
 
     const initialMap = new Promise(() => {
       Object.values(this.state.dataFetch).map((items, i) => {
         durationArr.push(Number(items.duration));
         bikeTypeArr.push(items.bike_type);
-        passTypeArr.push(items.passholder_type)
+        passTypeArr.push(items.passholder_type);
+        tripTypeArr.push(items.trip_route_category);
       });
     });
 
@@ -49,6 +51,9 @@ class App extends React.Component {
     var bikeTypeStandard = getOccurrences(bikeTypeArr, 'standard'),
         bikeTypeEletric = getOccurrences(bikeTypeArr, 'electric');
 
+    var tripTypeOneWay = getOccurrences(tripTypeArr, 'One Way'),
+        tripTypeRound = getOccurrences(tripTypeArr, 'Round Trip');
+
     var passTypeDay = getOccurrences(passTypeArr, 'Day Pass'),
         passTypeMonth = getOccurrences(passTypeArr, 'Indego30'),
         passTypeYear = getOccurrences(passTypeArr, 'Indego365');
@@ -59,7 +64,8 @@ class App extends React.Component {
       dataChart: {
         avgTripTime: getAvgDur,
         bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
-        passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear }
+        passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear },
+        tripType: { oneWay: tripTypeOneWay, roundTrip: tripTypeRound }
       }
     });
   }
@@ -67,7 +73,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Bike-Sharing-DV</h1>
+        <h1></h1>
       </div>
     )
   }
