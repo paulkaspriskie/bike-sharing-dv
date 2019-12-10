@@ -27,13 +27,15 @@ class App extends React.Component {
 
 
   dataDestructure() {
-    var durationArr = [],
+    var tripDateArr = [],
+        durationArr = [],
         bikeTypeArr = [],
         passTypeArr = [],
         tripTypeArr = [];
 
     const initialMap = new Promise(() => {
       Object.values(this.state.dataFetch).map((items, i) => {
+        tripDateArr.push(items.start_time);
         durationArr.push(Number(items.duration));
         bikeTypeArr.push(items.bike_type);
         passTypeArr.push(items.passholder_type);
@@ -72,9 +74,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1></h1>
-      </div>
+      <div></div>
     )
   }
 }
