@@ -64,6 +64,7 @@ class App extends React.Component {
 
     this.setState({
       dataChart: {
+        tripDate: tripDateArr,
         avgTripTime: getAvgDur,
         bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
         passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear },
