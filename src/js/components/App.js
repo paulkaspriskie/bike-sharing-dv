@@ -5,7 +5,10 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { dataFetch: {} };
+    this.state = {
+      dataFetch: {},
+      dataChart: {}
+    };
 
     this.dataDestructure = this.dataDestructure.bind(this);
   }
@@ -51,6 +54,14 @@ class App extends React.Component {
         passTypeYear = getOccurrences(passTypeArr, 'Indego365');
 
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
+
+    this.setState({
+      dataChart: {
+        avgTripTime: getAvgDur,
+        bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
+        passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear }
+      }
+    });
   }
 
   render() {
