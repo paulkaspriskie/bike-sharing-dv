@@ -5,18 +5,19 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { data: {} };
+    this.state = { dataFetch: {} };
 
     this.dataDestructure = this.dataDestructure.bind(this);
   }
 
+
   componentDidMount() {
-    const url = "http://localhost:3000/data"
+    const url = "http://localhost:3000/data";
 
     fetch(url, { method: 'get' })
       .then(response => response.json())
       .then(data => {
-        this.setState({ data: data });
+        this.setState({ dataFetch: data });
         this.dataDestructure();
       }).catch((error) => console.log(error));
   }
@@ -28,7 +29,7 @@ class App extends React.Component {
     var passTypeArr = [];
 
     const initialMap = new Promise(() => {
-      Object.values(this.state.data).map((items, i) => {
+      Object.values(this.state.dataFetch).map((items, i) => {
         durationArr.push(Number(items.duration));
         bikeTypeArr.push(items.bike_type);
         passTypeArr.push(items.passholder_type)
@@ -51,7 +52,6 @@ class App extends React.Component {
 
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
   }
-
 
   render() {
 
