@@ -8,9 +8,13 @@ html {
 }
 
 #root {
-  padding: 1.5em 3em 0 3em;
+  padding: 4em 2em 0 2em;
 
   & > h1 {
     margin: 0;
   }
+}
+
+.chart-type-pass_doughnut {
+  width: 50%;
 }

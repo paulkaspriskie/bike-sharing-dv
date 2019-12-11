@@ -14,14 +14,15 @@ class PassTypeDoughnut extends React.Component {
           this.props.passTypeData.yearPass
         ],
         backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
-      }]
+      }],
+      labels: [ 'Day Pass', 'Month Pass', 'Year Pass' ]
     }
 
     return (
-      <div>
+      <div className="chart-type-pass_doughnut">
         <Doughnut
           data={data}
-          options={{ cutoutPercentage: 75, legend:{display:false}, maintainAspectRatio: true}} />
+          options={{ cutoutPercentage: 75, maintainAspectRatio: true}} />
       </div>
     )
   }
