@@ -1,4 +1,5 @@
 import React from 'react';
+import PassTypeDoughnut from './charts/PassTypeDoughnut';
 import { Doughnut } from 'react-chartjs-2';
 
 class App extends React.Component {
@@ -70,12 +71,6 @@ class App extends React.Component {
         bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
         passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear },
         tripType: { oneWay: tripTypeOneWay, roundTrip: tripTypeRound }
-      },
-      doughnutData: {
-        datasets: [{
-          data: [ passTypeDay, passTypeMonth, passTypeYear ],
-          backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
-        }]
       }
     });
   }
@@ -83,9 +78,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Doughnut
-          data={this.state.doughnutData}
-          options={{ cutoutPercentage: 75, legend:{display:false}, maintainAspectRatio: true}} />
+        { this.state.dataChart.bikeType ? <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
       </div>
     )
   }
