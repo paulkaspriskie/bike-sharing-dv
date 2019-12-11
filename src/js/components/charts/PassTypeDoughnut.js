@@ -5,7 +5,6 @@ import { Doughnut } from 'react-chartjs-2';
 class PassTypeDoughnut extends React.Component {
 
   render() {
-
     const data = {
       datasets: [{
         data: [
@@ -15,14 +14,36 @@ class PassTypeDoughnut extends React.Component {
         ],
         backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
       }],
-      labels: [ 'Day Pass', 'Month Pass', 'Year Pass' ]
+      labels: [
+        'Day Pass: ' + this.props.passTypeData.dayPass.toLocaleString(),
+        'Month Pass: ' + this.props.passTypeData.monthPass.toLocaleString(),
+        'Year Pass: ' + this.props.passTypeData.yearPass.toLocaleString()
+      ]
     }
 
     return (
       <div className="chart-type-pass_doughnut">
         <Doughnut
           data={data}
-          options={{ cutoutPercentage: 75, maintainAspectRatio: true}} />
+          options={{
+            cutoutPercentage: 75,
+            maintainAspectRatio: true,
+            title:{
+              display: true,
+              text:'Indego Passholder Plans',
+              fontSize: 20,
+              padding: 20
+            },
+            legend:{
+              display: true,
+              position:'bottom',
+              labels: {
+                padding: 25,
+                fontSize: 16
+              }
+            }
+          }}
+           />
       </div>
     )
   }
