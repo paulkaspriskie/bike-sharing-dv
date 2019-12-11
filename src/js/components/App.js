@@ -37,7 +37,9 @@ class App extends React.Component {
 
     const initialMap = new Promise(() => {
       Object.values(this.state.dataFetch).map((items, i) => {
-        tripDateArr.push(items.start_time);
+        var date = new Date(items.start_time);
+
+        tripDateArr.push(date.toISOString().substring(0, 10));
         durationArr.push(Number(items.duration));
         bikeTypeArr.push(items.bike_type);
         passTypeArr.push(items.passholder_type);
