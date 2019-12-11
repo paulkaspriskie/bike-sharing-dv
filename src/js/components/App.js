@@ -78,7 +78,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        { this.state.dataChart.bikeType ? <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
+        { Object.keys(this.state.dataChart).length !== 0 ?
+          <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
       </div>
     )
   }

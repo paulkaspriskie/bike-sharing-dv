@@ -42,11 +42,13 @@ class PassTypeDoughnut extends React.Component {
                 fontSize: 16
               }
             }
-          }}
-           />
+          }} />
       </div>
     )
   }
+
 }
 
+//generateLabels: (chart) => {}
+//legendCallback: (chart) => {}
 export default PassTypeDoughnut;
