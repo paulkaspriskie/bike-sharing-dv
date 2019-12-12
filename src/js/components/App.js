@@ -8,8 +8,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       dataFetch: {},
-      dataChart: {},
-      doughnutData: {}
+      dataChart: {}
     };
 
     this.dataDestructure = this.dataDestructure.bind(this);
