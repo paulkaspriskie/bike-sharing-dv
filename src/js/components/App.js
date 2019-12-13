@@ -1,5 +1,6 @@
 import React from 'react';
 import PassTypeDoughnut from './charts/PassTypeDoughnut';
+import DataFilterMonth from './DataFilterMonth';
 import { Doughnut } from 'react-chartjs-2';
 
 class App extends React.Component {
@@ -46,6 +47,11 @@ class App extends React.Component {
       });
     });
 
+    // const test = Object.values(this.state.dataFetch).filter((getMonth) => {
+    //   var date = new Date(getMonth.start_time);
+    //   return Number(date.getMonth()) === 6;
+    // });
+
     function getOccurrences(array, value) {
       var count = 0;
       array.forEach((v) => (v === value && count++));
@@ -81,6 +87,8 @@ class App extends React.Component {
       <div>
         { Object.keys(this.state.dataChart).length !== 0 ?
           <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
+        { Object.keys(this.state.dataChart).length !== 0 ?
+          <DataFilterMonth data={this.state.dataFetch} /> : null }
       </div>
     )
   }
