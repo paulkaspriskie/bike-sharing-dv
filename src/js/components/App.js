@@ -47,11 +47,6 @@ class App extends React.Component {
       });
     });
 
-    // const test = Object.values(this.state.dataFetch).filter((getMonth) => {
-    //   var date = new Date(getMonth.start_time);
-    //   return Number(date.getMonth()) === 6;
-    // });
-
     function getOccurrences(array, value) {
       var count = 0;
       array.forEach((v) => (v === value && count++));
