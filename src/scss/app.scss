@@ -14,15 +14,12 @@ html {
     padding: 4em 3rem 0 3rem;
   }
 
-  &--app--layout {
-    display: flex;
-    justify-content: space-between;
-  }
-
 }
 
 
 .indego--component--chart {
+  display: flex;
+  justify-content: space-between;
 
   &--doughnut,
   &--bar--horizontal {
