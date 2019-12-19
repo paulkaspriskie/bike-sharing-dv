@@ -16,10 +16,8 @@ class App extends React.Component {
 
     fetch(url, { method: 'get' })
       .then(response => response.json())
-      .then(data => {
-        this.setState({ dataFetch: data });
-
-      }).catch((error) => console.log(error));
+      .then(data => this.setState({ dataFetch: data }))
+      .catch((error) => console.log(error));
   }
 
 
