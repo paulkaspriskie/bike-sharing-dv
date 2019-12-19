@@ -22,7 +22,7 @@ class PassTypeDoughnut extends React.Component {
     }
 
     return (
-      <div className="chart-type-pass_doughnut">
+      <div className="indeChart--doughnut">
         <Doughnut
           data={data}
           options={{

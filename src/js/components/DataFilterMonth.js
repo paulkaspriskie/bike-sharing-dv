@@ -34,7 +34,7 @@ class DataFilterMonth extends React.Component {
       ]
     }
     return(
-      <div>
+      <div className="indeChart--bar--horizontal">
         <HorizontalBar
           data={data}
           options={{

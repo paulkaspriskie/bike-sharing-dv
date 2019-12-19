@@ -79,7 +79,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="indego--container--dashboard">
         { Object.keys(this.state.dataChart).length !== 0 ?
           <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
         { Object.keys(this.state.dataChart).length !== 0 ?

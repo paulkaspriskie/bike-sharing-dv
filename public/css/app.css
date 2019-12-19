@@ -1,3 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");body,html{font-family:'Open Sans', sans-serif;margin:0;padding:0}#root{padding:4em 2em 0 2em}#root>h1{margin:0}.chart-type-pass_doughnut{width:50%}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");body,html{font-family:'Open Sans', sans-serif;margin:0;padding:0}.indego--container--app{padding:4em 3rem 0 3rem}.indego--container--dashboard{display:flex}.indeChart--doughnut,.indeChart--bar--horizontal{padding:0 2rem;width:50%}
 
 /*# sourceMappingURL=app.css.map */

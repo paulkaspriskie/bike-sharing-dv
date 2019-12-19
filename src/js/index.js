@@ -4,7 +4,7 @@ import App from './components/App';
 
 
 render(
-  <div className="app-container">
+  <div className="indego--container--app">
     <App />
   </div>,
   document.getElementById('root')
