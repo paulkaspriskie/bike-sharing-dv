@@ -12,9 +12,11 @@ class DataDashboard extends React.Component {
     this.dataDestructure = this.dataDestructure.bind(this);
   }
 
+
   componentDidMount() {
     this.dataDestructure();
   }
+
 
   dataDestructure() {
     var tripDateArr = [],
@@ -77,8 +79,7 @@ class DataDashboard extends React.Component {
   render() {
     return(
       <div className="indego--component--chart">
-        { Object.keys(this.state.dataChart).length !== 0 ?
-            <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
+        <PassTypeDoughnut passTypeData={this.state.dataChart.passType} />
         <BikeTypeBar />
       </div>
     )

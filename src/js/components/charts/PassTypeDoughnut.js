@@ -5,25 +5,30 @@ import { Doughnut } from 'react-chartjs-2';
 class PassTypeDoughnut extends React.Component {
 
   render() {
-    const data = {
-      datasets: [{
-        data: [
+
+    if (this.props.passTypeData) {
+
+      var data = {
+        datasets: [{
+          data: [
           this.props.passTypeData.dayPass,
           this.props.passTypeData.monthPass,
           this.props.passTypeData.yearPass
-        ],
-        backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
-      }],
-      labels: [
+          ],
+          backgroundColor: ['#FF9800','#673AB7','#BDBDBD' ]
+        }],
+        labels: [
         'Day Pass: ' + this.props.passTypeData.dayPass.toLocaleString(),
         'Month Pass: ' + this.props.passTypeData.monthPass.toLocaleString(),
         'Year Pass: ' + this.props.passTypeData.yearPass.toLocaleString()
-      ]
+        ]
+      }
+
     }
 
     return (
       <div className="indego--component--chart--doughnut">
-        <Doughnut
+        { this.props.passTypeData ? <Doughnut
           data={data}
           options={{
             cutoutPercentage: 75,
@@ -42,11 +47,11 @@ class PassTypeDoughnut extends React.Component {
                 fontSize: 16
               }
             }
-          }} />
+          }} /> : null }
       </div>
     )
-  }
 
+  }
 }
 
 //generateLabels: (chart) => {}
