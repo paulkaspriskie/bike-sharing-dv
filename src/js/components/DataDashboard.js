@@ -1,7 +1,7 @@
 import React from 'react';
 import { HorizontalBar } from 'react-chartjs-2';
 
-class DataFilterMonth extends React.Component {
+class DataDashboard extends React.Component {
 
   componentDidMount() {
 
@@ -61,4 +61,4 @@ class DataFilterMonth extends React.Component {
 
 }
 
-export default DataFilterMonth;
+export default DataDashboard;

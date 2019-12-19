@@ -1,6 +1,6 @@
 import React from 'react';
 import PassTypeDoughnut from './charts/PassTypeDoughnut';
-import DataFilterMonth from './DataFilterMonth';
+import DataDashboard from './DataDashboard';
 import { Doughnut } from 'react-chartjs-2';
 
 class App extends React.Component {
@@ -83,7 +83,7 @@ class App extends React.Component {
         { Object.keys(this.state.dataChart).length !== 0 ?
           <PassTypeDoughnut passTypeData={this.state.dataChart.passType} /> : null }
         { Object.keys(this.state.dataChart).length !== 0 ?
-          <DataFilterMonth data={this.state.dataFetch} /> : null }
+          <DataDashboard data={this.state.dataFetch} /> : null }
       </div>
     )
   }
