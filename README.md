@@ -1,4 +1,5 @@
 # Bike-Sharing-DV
+Bike-Sharing-DV is a data visualization dashboard using [Indego's 2019 bike sharing data](https://www.rideindego.com/about/data/).
 
 ## Instructions
 > Clone this repository:
