@@ -34,7 +34,7 @@ class DataDashboard extends React.Component {
       ]
     }
     return(
-      <div className="indeChart--bar--horizontal">
+      <div className="indego--component--chart--bar--horizontal">
         <HorizontalBar
           data={data}
           options={{

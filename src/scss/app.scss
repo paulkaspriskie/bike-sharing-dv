@@ -16,18 +16,18 @@ html {
 
   &--app--layout {
     display: flex;
+    justify-content: space-between;
   }
 
 }
 
 
-.indeChart {
+.indego--component--chart {
 
   &--doughnut,
   &--bar--horizontal {
     position: relative;
-    padding: 0 2rem;
-    width: 50vw;
+    width: 45vw;
   }
 
 }
