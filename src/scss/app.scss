@@ -11,20 +11,37 @@ html {
 .indego--container {
 
   &--app {
-    padding: 4em 3rem 0 3rem;
+    padding: 0 3rem 0 0;
+
+    &--layout {
+      display: flex;
+    }
   }
 
 }
 
 
-.indego--component--chart {
-  display: flex;
-  justify-content: space-between;
+.indego--component {
 
-  &--doughnut,
-  &--bar--horizontal {
-    position: relative;
-    width: 45vw;
+  &--sideNav {
+    width: 20%;
+    height: 100vh;
+    background-color: #F8F9FA;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    & > ul { list-style: none;}
+  }
+
+  &--chart {
+    display: flex;
+    padding-top: 4rem;
+    width: 80%;
+    justify-content: space-between;
+
+    &--doughnut,
+    &--bar--horizontal {
+      position: relative;
+      width: 45%;
+    }
   }
 
 }

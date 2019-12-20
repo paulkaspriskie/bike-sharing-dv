@@ -35,7 +35,7 @@ class PassTypeDoughnut extends React.Component {
             maintainAspectRatio: true,
             title:{
               display: true,
-              text:'Indego Passholder Plans',
+              text:'Passholder Plans',
               fontSize: 20,
               padding: 20
             },

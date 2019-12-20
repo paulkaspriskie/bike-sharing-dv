@@ -1,4 +1,5 @@
 import React from 'react';
+import SideNav from './SideNav';
 import DataDashboard from './DataDashboard';
 
 
@@ -23,6 +24,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="indego--container--app--layout">
+        <SideNav/>
         { Object.keys(this.state.dataFetch).length !== 0 ?
           <DataDashboard data={this.state.dataFetch} /> : null }
       </div>

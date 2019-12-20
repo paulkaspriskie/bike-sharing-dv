@@ -36,7 +36,7 @@ class BikeTypeBar extends React.Component {
             maintainAspectRatio: true,
             title:{
               display: true,
-              text:'Indego Passholder Plans',
+              text:'Bike Type: Standard VS. Electric',
               fontSize: 20,
               padding: 20
             },
