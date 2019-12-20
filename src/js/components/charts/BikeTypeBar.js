@@ -9,22 +9,22 @@ class BikeTypeBar extends React.Component {
       labels: [ 'July', 'August', 'September'],
       datasets: [
         {
-          label: 'test',
+          label: 'Standard',
           backgroundColor: '#BA68C8',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [65, 59, 60 ]
+          data: [65, 88, 64 ]
         },
         {
-          label: 'test 2',
+          label: 'Electric',
           backgroundColor: '#E57373',
           borderColor: 'rgba(255,99,132,1)',
           borderWidth: 1,
           hoverBackgroundColor: 'rgba(255,99,132,0.4)',
           hoverBorderColor: 'rgba(255,99,132,1)',
-          data: [40, 32, 64 ]
+          data: [45, 39, 48 ]
         }
       ]
     }
@@ -33,7 +33,8 @@ class BikeTypeBar extends React.Component {
         <HorizontalBar
           data={data}
           options={{
-            maintainAspectRatio: true,
+            responsive: true,
+            maintainAspectRatio: false,
             title:{
               display: true,
               text:'Bike Type: Standard VS. Electric',

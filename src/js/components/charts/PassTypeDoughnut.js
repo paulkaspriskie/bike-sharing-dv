@@ -32,7 +32,8 @@ class PassTypeDoughnut extends React.Component {
           data={data}
           options={{
             cutoutPercentage: 75,
-            maintainAspectRatio: true,
+            responsive: true,
+            maintainAspectRatio: false,
             title:{
               display: true,
               text:'Passholder Plans',
