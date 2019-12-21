@@ -14,6 +14,7 @@ class DataDashboard extends React.Component {
 
     this.dataDestructure = this.dataDestructure.bind(this);
     this.filterDataMonth = this.filterDataMonth.bind(this);
+    this.calcOccurrences = this.calcOccurrences.bind(this);
   }
 
 
@@ -41,6 +42,14 @@ class DataDashboard extends React.Component {
   }
 
 
+  calcOccurrences(array, value) {
+    var count = 0;
+    array.forEach((v) => (v === value && count++));
+
+    return count;
+  }
+
+
   dataDestructure() {
     var tripDateArr = [],
         durationArr = [],
@@ -60,22 +69,15 @@ class DataDashboard extends React.Component {
       });
     });
 
-    function getOccurrences(array, value) {
-      var count = 0;
-      array.forEach((v) => (v === value && count++));
+    var bikeTypeStandard = this.calcOccurrences(bikeTypeArr, 'standard'),
+        bikeTypeEletric = this.calcOccurrences(bikeTypeArr, 'electric');
 
-      return count;
-    }
+    var tripTypeOneWay = this.calcOccurrences(tripTypeArr, 'One Way'),
+        tripTypeRound = this.calcOccurrences(tripTypeArr, 'Round Trip');
 
-    var bikeTypeStandard = getOccurrences(bikeTypeArr, 'standard'),
-        bikeTypeEletric = getOccurrences(bikeTypeArr, 'electric');
-
-    var tripTypeOneWay = getOccurrences(tripTypeArr, 'One Way'),
-        tripTypeRound = getOccurrences(tripTypeArr, 'Round Trip');
-
-    var passTypeDay = getOccurrences(passTypeArr, 'Day Pass'),
-        passTypeMonth = getOccurrences(passTypeArr, 'Indego30'),
-        passTypeYear = getOccurrences(passTypeArr, 'Indego365');
+    var passTypeDay = this.calcOccurrences(passTypeArr, 'Day Pass'),
+        passTypeMonth = this.calcOccurrences(passTypeArr, 'Indego30'),
+        passTypeYear = this.calcOccurrences(passTypeArr, 'Indego365');
 
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
 
