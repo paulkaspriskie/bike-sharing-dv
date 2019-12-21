@@ -7,7 +7,10 @@ class DataDashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { dataChart: {} };
+    this.state = {
+      dataChart: {},
+      quarterData: {}
+   };
 
     this.dataDestructure = this.dataDestructure.bind(this);
     this.filterDataMonth = this.filterDataMonth.bind(this);
@@ -21,16 +24,20 @@ class DataDashboard extends React.Component {
 
 
   filterDataMonth() {
-    var julData = filterMonth(this.props.data, 6);
-    var augData = filterMonth(this.props.data, 7);
-    var septData = filterMonth(this.props.data, 8);
-
     function filterMonth(data, value) {
       return Object.values(data).filter((getMonth) => {
         var date = new Date(getMonth.start_time);
         return Number(date.getMonth()) === value;
       });
     }
+
+    this.setState({
+      quarterData: {
+        julData: filterMonth(this.props.data, 6),
+        augData: filterMonth(this.props.data, 7),
+        septData: filterMonth(this.props.data, 8)
+      }
+    });
   }
 
 
