@@ -19,25 +19,22 @@ class DataDashboard extends React.Component {
 
 
   componentDidMount() {
-    this.filterDataMonth();
     this.dataDestructure();
-  }
-
-
-  filterDataMonth() {
-    function filterMonth(data, value) {
-      return Object.values(data).filter((getMonth) => {
-        var date = new Date(getMonth.start_time);
-        return Number(date.getMonth()) === value;
-      });
-    }
 
     this.setState({
       quarterData: {
-        julData: filterMonth(this.props.data, 6),
-        augData: filterMonth(this.props.data, 7),
-        septData: filterMonth(this.props.data, 8)
+        julData: this.filterDataMonth(this.props.data, 6),
+        augData: this.filterDataMonth(this.props.data, 7),
+        septData: this.filterDataMonth(this.props.data, 8)
       }
+    });
+  }
+
+
+  filterDataMonth(data, value) {
+    return Object.values(data).filter((getMonth) => {
+      var date = new Date(getMonth.start_time);
+      return Number(date.getMonth()) === value;
     });
   }
 
@@ -93,6 +90,7 @@ class DataDashboard extends React.Component {
   }
 
   render() {
+    console.log(this.state.quarterData);
     return(
       <div className="indego--component--chart">
         <PassTypeDoughnut passTypeData={this.state.dataChart.passType} />
