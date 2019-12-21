@@ -10,11 +10,27 @@ class DataDashboard extends React.Component {
     this.state = { dataChart: {} };
 
     this.dataDestructure = this.dataDestructure.bind(this);
+    this.filterDataMonth = this.filterDataMonth.bind(this);
   }
 
 
   componentDidMount() {
+    this.filterDataMonth();
     this.dataDestructure();
+  }
+
+
+  filterDataMonth() {
+    var julData = filterMonth(this.props.data, 6);
+    var augData = filterMonth(this.props.data, 7);
+    var septData = filterMonth(this.props.data, 8);
+
+    function filterMonth(data, value) {
+      return Object.values(data).filter((getMonth) => {
+        var date = new Date(getMonth.start_time);
+        return Number(date.getMonth()) === value;
+      });
+    }
   }
 
 
@@ -65,15 +81,6 @@ class DataDashboard extends React.Component {
         tripType: { oneWay: tripTypeOneWay, roundTrip: tripTypeRound }
       }
     });
-
-    // month filter
-    // function filterMonth(data, value) {
-    //   return Object.values(data).filter((getMonth) => {
-    //     var date = new Date(getMonth.start_time);
-    //     return Number(date.getMonth()) === value;
-    //   });
-    // }
-
   }
 
   render() {
