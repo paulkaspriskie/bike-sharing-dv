@@ -8,7 +8,7 @@ class SideNav extends React.Component {
     return (
       <div className="indego--component--sideNav">
         <ul>
-          <li></li>
+          <li><img src={'img/indego-logo.png'}></img></li>
         </ul>
       </div>
     )
