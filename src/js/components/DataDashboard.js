@@ -66,25 +66,25 @@ class DataDashboard extends React.Component {
       });
     });
 
-    var bikeTypeStandard = this.calcOccurrences(bikeTypeArr, 'standard'),
-        bikeTypeEletric = this.calcOccurrences(bikeTypeArr, 'electric');
-
-    var tripTypeOneWay = this.calcOccurrences(tripTypeArr, 'One Way'),
-        tripTypeRound = this.calcOccurrences(tripTypeArr, 'Round Trip');
-
-    var passTypeDay = this.calcOccurrences(passTypeArr, 'Day Pass'),
-        passTypeMonth = this.calcOccurrences(passTypeArr, 'Indego30'),
-        passTypeYear = this.calcOccurrences(passTypeArr, 'Indego365');
-
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
 
     this.setState({
       dataChart: {
         tripDate: tripDateArr,
         avgTripTime: getAvgDur,
-        bikeType: { standard: bikeTypeStandard, electric: bikeTypeEletric },
-        passType: { dayPass: passTypeDay, monthPass: passTypeMonth, yearPass: passTypeYear },
-        tripType: { oneWay: tripTypeOneWay, roundTrip: tripTypeRound }
+        bikeType: {
+          standard: this.calcOccurrences(bikeTypeArr, 'standard'),
+          electric: this.calcOccurrences(bikeTypeArr, 'electric')
+        },
+        passType: {
+          dayPass: this.calcOccurrences(passTypeArr, 'Day Pass'),
+          monthPass: this.calcOccurrences(passTypeArr, 'Indego30'),
+          yearPass: this.calcOccurrences(passTypeArr, 'Indego365')
+        },
+        tripType: {
+          oneWay: this.calcOccurrences(tripTypeArr, 'One Way'),
+          roundTrip: this.calcOccurrences(tripTypeArr, 'Round Trip')
+        }
       }
     });
   }
