@@ -1,6 +1,7 @@
 import React from 'react';
 import PassTypeDoughnut from './charts/PassTypeDoughnut';
 import BikeTypeBar from './charts/BikeTypeBar';
+import PopStationTable from './charts/PopStationTable';
 
 
 class DataDashboard extends React.Component {
@@ -94,6 +95,7 @@ class DataDashboard extends React.Component {
       <div className="indego--component--chart">
         <PassTypeDoughnut passTypeData={this.state.dataChart.passType} />
         <BikeTypeBar qData={this.state.quarterData} getOccur={this.calcOccurrences} />
+        <PopStationTable />
       </div>
     )
   }
