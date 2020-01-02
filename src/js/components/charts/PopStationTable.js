@@ -5,15 +5,23 @@ class PopStationTable extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { stationData: {} };
+    this.state = { stationData: [] };
+    this.getStationOccur = this.getStationOccur.bind(this);
   }
 
 
   componentDidMount() {
     fetch('./data/station-data.json')
       .then(response => response.json())
-      .then(data => data.stations.map((items, i) => console.log(items)))
-      .catch((error) => console.log(error));
+      .then(data => {
+        this.setState({ stationData: data });
+        this.getStationOccur();
+      }).catch((error) => console.log(error));
+  }
+
+
+  getStationOccur() {
+    console.log('test');
   }
 
   render() {
