@@ -95,7 +95,7 @@ class DataDashboard extends React.Component {
       <div className="indego--component--chart">
         <PassTypeDoughnut passTypeData={this.state.dataChart.passType} />
         <BikeTypeBar qData={this.state.quarterData} getOccur={this.calcOccurrences} />
-        <PopStationTable />
+        <PopStationTable qData={this.state.quarterData} />
       </div>
     )
   }

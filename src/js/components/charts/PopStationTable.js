@@ -21,7 +21,19 @@ class PopStationTable extends React.Component {
 
 
   getStationOccur() {
-    console.log('test');
+    var statOccurArr = [];
+
+    Object.values(this.props.qData.julData).map((items, i) => {
+      statOccurArr.push(items.start_station);
+    });
+
+    let counts = statOccurArr.reduce((map, stations) => {
+      map[stations] = (map[stations] || 0) + 1;
+      return map;
+    }, {});
+
+    let sortStats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+    let getPopStats = sortStats.slice(0, 5);
   }
 
   render() {
