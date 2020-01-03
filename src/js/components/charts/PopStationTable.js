@@ -5,7 +5,11 @@ class PopStationTable extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { stationData: [] };
+    this.state = {
+      stationData: {},
+      popStatArr: []
+    };
+
     this.getStationOccur = this.getStationOccur.bind(this);
   }
 
@@ -34,11 +38,17 @@ class PopStationTable extends React.Component {
 
     let sortStats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
     let getPopStats = sortStats.slice(0, 5);
+
+    this.setState({ popStatArr: getPopStats });
   }
 
   render() {
     return(
-      <div className="indego--component--table"></div>
+      <div className="indego--component--table">
+        { Object.keys(this.props.qData).length > 0 ? <ul>
+
+        </ul> : null }
+      </div>
     )
   }
 }
