@@ -70,20 +70,48 @@ html {
 
   &--table {
     width: 90%;
-    height: 40vh;
+    height: 45vh;
+
+    & > h2 {
+      margin: 0;
+      padding-bottom: 0.5rem;
+    }
+
+    & > section {
+      display: flex;
+      padding: 0.5rem 1.9rem 0.5rem 1rem;
+      justify-content: space-between;
+      color: #ffffff;
+      background-color: #2183C8;
+
+      & > span {
+        font-weight: 900;
+        &:first-of-type { min-width: 430px; }
+      }
+    }
 
     & > ul {
+      height: 70%;
       display: block;
       margin: 0 auto;
       padding: 0;
       list-style: none;
+      overflow-y: auto;
+      border: 1px solid #666;
 
       & > li {
+        display: flex;
         padding: 0.5rem 1rem;
-        &:nth-of-type(odd) {
+        justify-content: space-between;
+        &:nth-of-type(even) {
           background-color: #EEEEEF;
         }
+
+        & > span:first-of-type {
+          min-width: 430px;
+        }
       }
+
     }
   }
 
