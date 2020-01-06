@@ -37,7 +37,7 @@ class PopStationTable extends React.Component {
     }, {});
 
     let sortStats = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
-    let getPopStats = sortStats.slice(0, 5);
+    let getPopStats = sortStats.slice(0, 8);
 
     this.setState({ popStatArr: getPopStats });
   }
@@ -47,9 +47,11 @@ class PopStationTable extends React.Component {
       <div className="indego--component--table">
         { Object.keys(this.state.stationData).length && this.state.popStatArr.length > 0 ? <ul>
           {
-            Object.values(this.state.stationData.stations).filter(x => Number(x.Station_ID) === Number(this.state.popStatArr[0]))
-            .map((items, i) => {
-              return <li key={i}>{items.Station_Name}</li>
+            this.state.popStatArr.map((items, i) => {
+              return Object.values(this.state.stationData.stations).filter(x => Number(x.Station_ID) === Number(items))
+              .map((items, i) => {
+                return <li key={i}>{items.Station_Name}</li>
+              })
             })
           }
         </ul> : null }
