@@ -45,12 +45,11 @@ class PopStationTable extends React.Component {
   render() {
     return(
       <div className="indego--component--table">
-        { Object.keys(this.props.qData).length > 0 ? <ul>
+        { Object.keys(this.state.stationData).length > 0 ? <ul>
           {
-            Object.values(this.props.qData.julData).map((items, i) => {
-              if (Number(items.start_station) === 3000) {
-                return <li key={i}>{items.start_station}</li>
-              }
+            Object.values(this.state.stationData.stations).filter(x => Number(x.Station_ID) === 3054)
+            .map((items, i) => {
+              return <li key={i}>{items.Station_Name}</li>
             })
           }
         </ul> : null }
