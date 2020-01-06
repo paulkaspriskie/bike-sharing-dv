@@ -55,6 +55,7 @@ html {
 
   &--chart {
     display: flex;
+    flex-wrap: wrap;
     padding: 2rem 0 0 0;
     width: 80%;
     justify-content: space-around;
@@ -64,6 +65,25 @@ html {
       position: relative;
       width: 45%;
       height: 45vh;
+    }
+  }
+
+  &--table {
+    width: 90%;
+    height: 40vh;
+
+    & > ul {
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+
+      & > li {
+        padding: 0.5rem 1rem;
+        &:nth-of-type(odd) {
+          background-color: #EEEEEF;
+        }
+      }
     }
   }
 
