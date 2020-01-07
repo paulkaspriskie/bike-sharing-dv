@@ -40,6 +40,9 @@ class PassTypeDoughnut extends React.Component {
               fontSize: 20,
               padding: 20
             },
+            tooltips: {
+              enabled: false
+            },
             legend:{
               display: true,
               position:'bottom',
