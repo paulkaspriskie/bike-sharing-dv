@@ -21,14 +21,6 @@ class DataDashboard extends React.Component {
 
   componentDidMount() {
     this.dataDestructure();
-
-    this.setState({
-      quarterData: {
-        julData: this.filterDataMonth(this.props.data, 6),
-        augData: this.filterDataMonth(this.props.data, 7),
-        septData: this.filterDataMonth(this.props.data, 8)
-      }
-    });
   }
 
 
@@ -84,6 +76,11 @@ class DataDashboard extends React.Component {
           oneWay: this.calcOccurrences(tripTypeArr, 'One Way'),
           roundTrip: this.calcOccurrences(tripTypeArr, 'Round Trip')
         }
+      },
+      quarterData: {
+        julData: this.filterDataMonth(this.props.data, 6),
+        augData: this.filterDataMonth(this.props.data, 7),
+        septData: this.filterDataMonth(this.props.data, 8)
       }
     });
   }
