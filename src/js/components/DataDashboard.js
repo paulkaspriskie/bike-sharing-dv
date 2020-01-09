@@ -55,16 +55,14 @@ class DataDashboard extends React.Component {
         passTypeArr = [],
         tripTypeArr = [];
 
-    const initialMap = new Promise(() => {
-      Object.values(this.props.data).map((items, i) => {
-        var date = new Date(items.start_time);
+    Object.values(this.props.data).map((items, i) => {
+      var date = new Date(items.start_time);
 
-        tripDateArr.push(date.toISOString().substring(0, 10));
-        durationArr.push(Number(items.duration));
-        bikeTypeArr.push(items.bike_type);
-        passTypeArr.push(items.passholder_type);
-        tripTypeArr.push(items.trip_route_category);
-      });
+      tripDateArr.push(date.toISOString().substring(0, 10));
+      durationArr.push(Number(items.duration));
+      bikeTypeArr.push(items.bike_type);
+      passTypeArr.push(items.passholder_type);
+      tripTypeArr.push(items.trip_route_category);
     });
 
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
