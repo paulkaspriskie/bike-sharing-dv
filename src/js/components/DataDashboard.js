@@ -9,7 +9,7 @@ class DataDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataChart: {},
+      quarterData: {},
       monthData: {}
    };
 
@@ -60,7 +60,7 @@ class DataDashboard extends React.Component {
     var getAvgDur = Math.round(durationArr.reduce((a,b) => a + b, 0) / durationArr.length);
 
     this.setState({
-      dataChart: {
+      quarterData: {
         tripDate: tripDateArr,
         avgTripTime: getAvgDur,
         bikeType: {
@@ -88,7 +88,7 @@ class DataDashboard extends React.Component {
   render() {
     return(
       <div className="indego--component--chart">
-        <PassTypeDoughnut passTypeData={this.state.dataChart.passType} />
+        <PassTypeDoughnut passTypeData={this.state.quarterData.passType} />
         <BikeTypeBar dataMonth={this.state.monthData} getOccur={this.calcOccurrences} />
         <PopStationTable dataMonth={this.state.monthData} />
       </div>
