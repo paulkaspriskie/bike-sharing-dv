@@ -5,7 +5,6 @@ import { Doughnut } from 'react-chartjs-2';
 class PassTypeDoughnut extends React.Component {
 
   render() {
-
     if (this.props.passTypeData) {
 
       var data = {
@@ -54,10 +53,7 @@ class PassTypeDoughnut extends React.Component {
           }} /> : null }
       </div>
     )
-
   }
 }
 
-//generateLabels: (chart) => {}
-//legendCallback: (chart) => {}
 export default PassTypeDoughnut;

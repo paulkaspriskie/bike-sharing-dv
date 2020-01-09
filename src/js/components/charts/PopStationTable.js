@@ -27,7 +27,7 @@ class PopStationTable extends React.Component {
   getStationOccur() {
     var statOccurArr = [];
 
-    Object.values(this.props.qData.julData).map((items, i) => {
+    Object.values(this.props.dataMonth.julData).map((items, i) => {
       statOccurArr.push(items.start_station);
     });
 
@@ -70,6 +70,7 @@ class PopStationTable extends React.Component {
       </div>
     )
   }
+
 }
 
 export default PopStationTable;

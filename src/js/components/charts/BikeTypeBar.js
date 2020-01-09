@@ -4,15 +4,15 @@ import { HorizontalBar } from 'react-chartjs-2';
 class BikeTypeBar extends React.Component {
 
   render() {
-    if (Object.keys(this.props.qData).length > 0) {
+    if (Object.keys(this.props.dataMonth).length > 0) {
 
       var julBikeType = [];
       var augBikeType = [];
       var septBikeType = [];
 
-      Object.values(this.props.qData.julData).map((items, i) => julBikeType.push(items.bike_type));
-      Object.values(this.props.qData.augData).map((items, i) => augBikeType.push(items.bike_type));
-      Object.values(this.props.qData.septData).map((items, i) => septBikeType.push(items.bike_type));
+      Object.values(this.props.dataMonth.julData).map((items, i) => julBikeType.push(items.bike_type));
+      Object.values(this.props.dataMonth.augData).map((items, i) => augBikeType.push(items.bike_type));
+      Object.values(this.props.dataMonth.septData).map((items, i) => septBikeType.push(items.bike_type));
 
       var data = {
         labels: [ 'July', 'August', 'September'],
@@ -45,12 +45,12 @@ class BikeTypeBar extends React.Component {
           }
         ]
       }
-    }
 
+    }
 
     return(
       <div className="indego--component--chart--bar--horizontal">
-        { Object.keys(this.props.qData).length > 0 ? <HorizontalBar
+        { Object.keys(this.props.dataMonth).length > 0 ? <HorizontalBar
           data={data}
           options={{
             responsive: true,
@@ -73,8 +73,6 @@ class BikeTypeBar extends React.Component {
       </div>
     )
   }
-
-
 }
 
 export default BikeTypeBar;
