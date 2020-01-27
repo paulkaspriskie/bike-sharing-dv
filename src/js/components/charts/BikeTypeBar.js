@@ -6,13 +6,17 @@ class BikeTypeBar extends React.Component {
   render() {
     if (Object.keys(this.props.dataMonth).length > 0) {
 
-      var julBikeType = [];
-      var augBikeType = [];
-      var septBikeType = [];
+      var julBikeType = [],
+          augBikeType = [],
+          septBikeType = [];
 
-      Object.values(this.props.dataMonth.julData).map((items, i) => julBikeType.push(items.bike_type));
-      Object.values(this.props.dataMonth.augData).map((items, i) => augBikeType.push(items.bike_type));
-      Object.values(this.props.dataMonth.septData).map((items, i) => septBikeType.push(items.bike_type));
+      function dataMapArr(data, arr) {
+        Object.values(data).map((items, i) => arr.push(items.bike_type));
+      }
+
+      dataMapArr(this.props.dataMonth.julData, julBikeType);
+      dataMapArr(this.props.dataMonth.augData, augBikeType);
+      dataMapArr(this.props.dataMonth.septData, septBikeType);
 
       var data = {
         labels: [ 'July', 'August', 'September'],

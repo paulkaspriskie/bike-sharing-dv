@@ -45,7 +45,7 @@ class PopStationTable extends React.Component {
   render() {
     return(
       <div className="indego--component--table">
-        <h2>Stations by traffic</h2>
+        <h2>Top Stations by Traffic</h2>
         <section>
           <span>Name</span>
           <span>Live date</span>
